@@ -4,6 +4,7 @@
 #include "MyLib.h"
 
 #include "VectorExt.h"
+#include "SignalProcessing.h"
 
 void Task1()
 {
@@ -25,8 +26,26 @@ void Task1()
 
 void Task2()
 {
-	std::cout << "Работа с Классом Matrix:" << std::endl << std::endl;
+	std::cout << "Расчет ошибки преобразования сигнала Аналогово в Цифровой:" << std::endl << std::endl;
 	
+	const size_t count = 100;
+
+	std::vector<double_t> analogSignal(count);
+	std::vector<int64_t> digitalSignal(count);
+
+	generateAnalogSignal(analogSignal);
+	std::copy(analogSignal.begin(), analogSignal.end(), digitalSignal.begin());
+	
+	std::cout << "Аналоговый сигнал:" << std::endl;
+	myLib::printContainer(analogSignal);
+	std::cout << std::endl;
+	std::cout << "Цифровой сигнал:" << std::endl;
+	myLib::printContainer(digitalSignal);
+	std::cout << std::endl;
+
+
+
+
 }
 
 
