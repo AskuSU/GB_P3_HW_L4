@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 #include <optional>
+#include <algorithm>
 
 #undef max
 
@@ -92,12 +93,13 @@ void myLib::printVect(const std::vector<T>& vec)
 template<typename T>
 void myLib::printContainer(const T& cont)
 {
-	size_t size = 0;
-	for(const auto& i : cont)
-	{
-		size++;
-		std::cout << i;
-		if(size != cont.size()) std::cout << ", ";
-	}
+	const size_t size = cont.size();
+	std::for_each(cont.begin(), cont.end(), 
+		[count = 0, &size](const auto& i) mutable
+		{
+			count++;
+			std::cout << i;
+			if (count != size) std::cout << ", ";
+		});
 	std::cout << std::endl;
 }
