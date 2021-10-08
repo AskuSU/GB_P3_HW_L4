@@ -43,9 +43,7 @@ void Task2()
 	myLib::printContainer(digitalSignal);
 	std::cout << std::endl;
 
-
-
-
+	std::cout << "Ошибка преобразования сигнала сотавляет: " << calculateSignalConversionError(analogSignal, digitalSignal) << std::endl;
 }
 
 
