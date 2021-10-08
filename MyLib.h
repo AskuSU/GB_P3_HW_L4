@@ -25,6 +25,9 @@ namespace myLib
 	template <typename T>
 	void printVect(const std::vector<T> &vec);
 
+	template <typename T>
+	void printContainer(const T& cont);
+
 	std::string getNameFileFromUser(unsigned short indexF);
 }
 
@@ -82,6 +85,19 @@ void myLib::printVect(const std::vector<T>& vec)
 	for (auto i : vec)
 	{
 		std::cout << i << ' ';
+	}
+	std::cout << std::endl;
+}
+
+template<typename T>
+void myLib::printContainer(const T& cont)
+{
+	size_t size = 0;
+	for(const auto& i : cont)
+	{
+		size++;
+		std::cout << i;
+		if(size != cont.size()) std::cout << ", ";
 	}
 	std::cout << std::endl;
 }

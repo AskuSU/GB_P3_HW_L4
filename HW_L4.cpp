@@ -11,23 +11,14 @@ void Task1()
 	
 	std::vector<int32_t> vec{ -5, -3, -2, -1, 0, 2, 3, 6, 7, 9 };
 	std::list<int32_t> list{ -9, -5, -3, -1, 2, 4, 6, 8, 9 };
-	auto printVec = [&vec]()
-	{
-		for (const auto& i : vec) std::cout << i << ", ";
-		std::cout << std::endl;
-	};
-	auto printList = [&list]()
-	{
-		for (const auto& i : list) std::cout << i << ", ";
-		std::cout << std::endl;
-	};
-	printVec();
+
+	myLib::printContainer(vec);
 	insert_sorted(vec, 1);
-	printVec();
+	myLib::printContainer(vec);
 	std::cout << std::endl;
-	printList();
+	myLib::printContainer(list);
 	insert_sorted(list, 0);
-	printList();
+	myLib::printContainer(list);
 
 	std::cout << std::endl;
 }
